@@ -127,8 +127,8 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  return value % 10;
 }
 
 /**
@@ -266,8 +266,26 @@ function getCube(num) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  if (index === 0) {
+    return 0;
+  }
+
+  if (index === 1) {
+    return 1;
+  }
+
+  let prev2 = 0;
+  let prev1 = 1;
+  let cur;
+
+  for (let i = 2; i <= index; i += 1) {
+    cur = prev2 + prev1;
+    prev2 = prev1;
+    prev1 = cur;
+  }
+
+  return cur;
 }
 
 /**
@@ -324,8 +342,8 @@ function getSumOfDigits(num) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num) {
+  return Number.isInteger(Math.log2(num));
 }
 
 /**
@@ -353,8 +371,8 @@ function getSine(num) {
  * 255, 16 => 'ff'
  * 2, 2    => '10'
  */
-function numberToStringInBase(/* number, base */) {
-  throw new Error('Not implemented');
+function numberToStringInBase(number, base) {
+  return number.toString(base);
 }
 
 /**
@@ -431,8 +449,8 @@ function getNumberValue(number) {
  * 5        => true
  * '5'      => false
  */
-function isNumber(/* number */) {
-  throw new Error('Not implemented');
+function isNumber(number) {
+  return Number.isFinite(number);
 }
 
 /**
@@ -478,8 +496,8 @@ function getFloatOnString(str) {
  * '1.234', 2           => 1
  * '10', 8              => 8
  */
-function getIntegerOnString(/* str, base */) {
-  throw new Error('Not implemented');
+function getIntegerOnString(str, base) {
+  return Number.parseInt(str, base);
 }
 
 /**
